@@ -52,6 +52,6 @@ app.use("/posts", postRoutes)
 app.use("/posts/:id/comments", commentRoutes)
 
 // LISTEN
-app.listen(process.env.PORT || 3000, process.env.IP function(){
+app.listen(process.env.PORT || 3000, function(){
 	console.log('Server Initiated.')
 })
