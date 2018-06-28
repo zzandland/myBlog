@@ -19,8 +19,6 @@ var	postRoutes		= require("./routes/posts"),
 	indexRoutes		= require("./routes/index")
 
 app.set("view engine", "ejs")
-// var url = ("mongodb://localhost/myBlog" || "mongodb://zzandland:Ks1000104861@ds119171.mlab.com:19171/myblog")
-mongoose.connect("mongodb://zzandland:Ks1000104861@ds119171.mlab.com:19171/myblog")
 app.use(express.static(__dirname + "/public"))
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(methodOverride("_method"))
