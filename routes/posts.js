@@ -6,11 +6,11 @@ var express		= require("express"),
 
 // INDEX
 router.get("/", function(req, res){
-	Post.find({}, function(err, posts){
+	Post.find({}, function(err, allPosts){
 		if(err){
 			console.log(err)
 		} else{
-			res.render("posts/index", {posts: posts})
+			res.render("posts/index", {posts: allPosts})
 		}
 	})
 }) 

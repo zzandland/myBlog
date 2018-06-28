@@ -1,6 +1,7 @@
 var express 	= require("express"),
 	router		= express.Router(),
 	User		= require("../models/user"),
+	Post 		= require("../models/post"),
 	passport	= require("passport")
 
 
@@ -13,7 +14,13 @@ function isLoggedIn(req, res, next){
 
 // LANDING
 router.get("/", function(req, res){
-	res.render("index")
+	Post.find({}, function(err, allPosts) {
+		if(err) {
+			console.log(err)
+		} else {
+			res.render("index", {posts: allPosts})
+		}
+	})
 })
 
 // REGISTER
