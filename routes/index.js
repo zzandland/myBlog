@@ -13,7 +13,7 @@ function isLoggedIn(req, res, next){
 
 // LANDING
 router.get("/", function(req, res){
-	res.redirect("/posts")
+	res.render("index")
 })
 
 // REGISTER
