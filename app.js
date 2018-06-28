@@ -19,7 +19,8 @@ var	postRoutes		= require("./routes/posts"),
 	indexRoutes		= require("./routes/index")
 
 var url = process.env.DATABASEURL || "mongodb://localhost/myBlog"
-mongoose.connect(url)
+// mongoose.connect("mongodb://localhost/myBlog")
+mongoose.connect(process.env.DATABASEURL)
 
 app.set("view engine", "ejs")
 app.use(express.static(__dirname + "/public"))
@@ -53,6 +54,6 @@ app.use("/posts", postRoutes)
 app.use("/posts/:id/comments", commentRoutes)
 
 // LISTEN
-app.listen(process.env.PORT || 3000, function(){
+app.listen(process.env.PORT || 3000, process.env.IP, function(){
 	console.log('Server Initiated.')
 })

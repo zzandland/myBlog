@@ -23,7 +23,7 @@
     </section>
     <section class="featured-posts no-padding-top">
       <div class="container">
-        <% for (var i = 0; i < 3; i++) { -%>
+        <% for (var i = 0; i < posts.slice(0, 3).length; i++) { -%>
             <div class="row d-flex align-items-stretch">
               <% if(i % 2 === 1) { %>
               <div class="image col-lg-5"><img src="<%= posts[i].image %>" alt="..."></div>
@@ -70,7 +70,7 @@
           <p class="text-big">Why are you wasting my time on my blog?</p>
         </header>
         <div class="row">
-          <% for (var i = 0; i < 3; i++) { -%>
+          <% for (var i = 0; i < posts.slice(0, 3).length; i++) { -%>
             <div class="post col-md-4">
               <div class="post-thumbnail"><a href="post.html">
                 <img src="<%= posts[i].image %>" alt="..." class="img-fluid"></a>
