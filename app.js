@@ -48,6 +48,17 @@ app.use(function(req, res, next){
 	next()
 })
 
+app.use(function(req, res, next){
+	Post.find({}, function(err, allPosts) {
+		if(err) {
+			console.log(err)
+		} else {
+			res.locals.posts = allPosts
+			next()
+		}
+	})
+})
+
 app.use("/", indexRoutes)
 app.use("/posts", postRoutes)
 app.use("/posts/:id/comments", commentRoutes)

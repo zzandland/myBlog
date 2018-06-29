@@ -11,15 +11,15 @@ router.post("/", middleware.isLoggedIn, function(req, res){
 			console.log(err)
 		} else{
 			Comment.create(req.body.comment, function(err, createdComment){
-				var author = {
-					id: req.user_id,
-					username: req.user.username
-				}
 				if(err){
 					console.log(err)
 				} else{
-					createdComment.author.id = req.user._id;
-					createdComment.author.username = req.user.username;
+					var author = {
+						id: req.user._id,
+						username: req.user.username,
+						image: req.user.image	
+					}
+					createdComment.author = author;
 					createdComment.save()
 					foundPost.comments.push(createdComment)	
 					foundPost.save()	

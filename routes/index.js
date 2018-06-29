@@ -14,13 +14,7 @@ function isLoggedIn(req, res, next){
 
 // LANDING
 router.get("/", function(req, res){
-	Post.find({}, function(err, allPosts) {
-		if(err) {
-			console.log(err)
-		} else {
-			res.render("index", {posts: allPosts})
-		}
-	})
+	res.render("index", {posts: res.locals.posts})
 })
 
 // REGISTER
