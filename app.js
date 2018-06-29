@@ -19,8 +19,7 @@ var	postRoutes		= require("./routes/posts"),
 	indexRoutes		= require("./routes/index")
 
 var url = process.env.DATABASEURL || "mongodb://localhost/myBlog"
-// mongoose.connect("mongodb://localhost/myBlog")
-mongoose.connect(process.env.DATABASEURL)
+mongoose.connect(url)
 
 app.set("view engine", "ejs")
 app.use(express.static(__dirname + "/public"))

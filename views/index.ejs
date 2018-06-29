@@ -1,4 +1,5 @@
 <% include ./partials/header %>
+<% include ../middleware/functions %>
  <!-- Hero Section-->
     <section style="background: url(img/hero.jpg); background-size: cover; background-position: center center" class="hero">
       <div class="container">
@@ -15,8 +16,8 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8">
-            <h2 class="h3">Your life is a collection of your choices.</h2>
-            <p class="text-big">Hello. I am <strong>David</strong>. I am a freelancer Web developer who started learning since <strong>May 2018</strong>. I may lack experience, but I can assure you that I make up with my <strong>incessant passion for learning and hardwork</strong>. Thank you for visiting my blog and I hope you have a good stay here.</p>
+            <h2 class="h3">Welcome to my Blog.</h2>
+            <p class="text-big">Hello. I am <strong>David</strong>. I am a freelancer Web developer who started learning since <strong>May 2018</strong>. I may lack experience, but I make up with my <strong>incessant passion for learning</strong> and <strong>hardwork</strong>. Thank you for visiting my blog and I hope you have a good stay here.</p>
           </div>
         </div>
       </div>
@@ -35,11 +36,11 @@
                       <div class="category"><a href="#">Business</a><a href="#">Technology</a></div><a href="/posts/<%= posts[i]._id %>">
                         <h2 class="h4"><%= posts[i].title %></h2></a>
                     </header>
-                    <p><%= posts[i].body.length > 200 ? posts[i].body.substring(0, 200) + "..." : posts[i].body %></p>
+                    <a href="/posts/<%= posts[i]._id %>"><p><%= posts[i].body.length > 200 ? posts[i].body.substring(0, 200) + "..." : posts[i].body %></p></a>
                     <footer class="post-footer d-flex align-items-center"><a href="/about" class="author d-flex align-items-center flex-wrap">
-                        <div class="avatar"><img src="img/avatar-1.jpg" alt="..." class="img-fluid"></div>
-                        <div class="title"><span><%= posts[i].author.username %></span></div></a>
-                      <div class="date"><i class="icon-clock"></i> 2 months ago</div>
+                        <div class="avatar"><img src="<%= posts[i].author%>" alt="..." class="img-fluid"></div>
+                        <div class="title"><span><%= posts[i].author%></span></div></a>
+                      <div class="date"><i class="icon-clock"></i> <%= timeDifference(posts[i].date) %></div>
                       <div class="comments"><i class="icon-comment"></i><%= posts[i].comments.length%> </div>
                     </footer>
                   </div>
@@ -57,7 +58,10 @@
       <div class="container">
         <div class="row">
           <div class="col-md-7">
-            <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</h2><a href="#" class="hero-link">View More</a>
+            <h2>We are what we repeatedly do. Excellence, then, is not an act, but a habit.</h2>
+            <hr>
+            <h4><em>Will Durant</em></h4>
+            <a href="#" class="hero-link">View More</a>
           </div>
         </div>
       </div>
@@ -67,21 +71,21 @@
       <div class="container">
         <header> 
           <h2>Latest from the blog</h2>
-          <p class="text-big">Why are you wasting my time on my blog?</p>
+          <p class="text-big">Why are you wasting <strong>my</strong> time on my blog?</p>
         </header>
         <div class="row">
           <% for (var i = 0; i < posts.slice(0, 3).length; i++) { -%>
             <div class="post col-md-4">
-              <div class="post-thumbnail"><a href="post.html">
+              <div class="post-thumbnail"><a href="/posts/<%= posts[i]._id %>">
                 <img src="<%= posts[i].image %>" alt="..." class="img-fluid"></a>
               </div>
               <div class="post-details">
                 <div class="post-meta d-flex justify-content-between">
                   <div class="date"><%= posts[i].date.toDateString().split(/\d{4}/)[0] %> | <%= posts[i].date.toDateString().match(/\d{4}/)[0] %></div>
                   <div class="category"><a href="#">Business</a></div>
-                </div><a href="post.html">
-                  <h3 class="h4"><%= posts[i].title %></h3></a>
-                <p class="text-muted"><%= posts[i].body.length > 100 ? posts[i].body.substring(0, 100) + "..." : posts[i].body %></p>
+                </div><a href="/posts/<%= posts[i]._id %>">
+                  <h3 class="h4"><%= posts[i].title %></h3>
+                <p class="text-muted"><%= posts[i].body.length > 100 ? posts[i].body.substring(0, 100) + "..." : posts[i].body %></p></a>
               </div>
             </div>
           <% } -%>

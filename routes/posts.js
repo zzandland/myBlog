@@ -24,7 +24,9 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 router.post("/", middleware.isLoggedIn, function(req, res){
 	var	author	= {
 			id: req.user._id,
-			username: req.user.username
+			username: req.user.username,
+			image: req.user.image,
+			email: req.user.email
 		}
 	req.body.post.author = author
 	Post.create(req.body.post, function(err, newPost){
@@ -38,11 +40,17 @@ router.post("/", middleware.isLoggedIn, function(req, res){
 
 // SHOW
 router.get("/:id", function(req, res){
-	Post.findById(req.params.id).populate("comments").exec(function(err, foundPost){
-		if(err){
+	Post.find({}, function(err, allPosts){
+		if(err) {
 			console.log(err)
-		} else{
-			res.render("posts/show", {post: foundPost})
+		} else {
+			Post.findById(req.params.id).populate("comments").exec(function(err, foundPost){
+				if(err){
+					console.log(err)
+				} else{
+					res.render("posts/show", {post: foundPost, posts: allPosts})
+				}
+			})
 		}
 	})
 }) 

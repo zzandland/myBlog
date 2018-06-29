@@ -7,7 +7,9 @@ var postSchema = new mongoose.Schema({
 			type: mongoose.Schema.Types.ObjectId,
 			ref: "User"
 		},
-		username: String
+		username: String,
+		image: String,
+		email: String
 	},
 	image: String,
 	date: {type: Date, default: Date.now},
