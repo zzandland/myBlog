@@ -5,7 +5,7 @@ var express 	= require("express"),
 	middleware	= require("../middleware")
 
 // CREATE
-router.post("/", middleware.isLoggedIn, function(req, res){
+router.post("/", function(req, res){
 	Post.findById(req.params.id, function(err, foundPost){
 		if(err){
 			console.log(err)
@@ -14,13 +14,23 @@ router.post("/", middleware.isLoggedIn, function(req, res){
 				if(err){
 					console.log(err)
 				} else{
-					var author = {
-						id: req.user._id,
-						username: req.user.username,
-						image: req.user.image	
+					if(req.user) {
+						var author = {
+							id: req.user._id,
+							username: req.user.username,
+							image: req.user.image	
+						}
+						createdComment.author = author;
+						createdComment.save()
+					} else {
+						var author = {
+							username: req.body.username,
+							image: "https://d30y9cdsu7xlg0.cloudfront.net/png/138927-200.png"
+						}
+						createdComment.author = author;
+						createdComment.save()	
 					}
-					createdComment.author = author;
-					createdComment.save()
+					
 					foundPost.comments.push(createdComment)	
 					foundPost.save()	
 					res.redirect("/posts/" + foundPost._id)

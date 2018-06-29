@@ -27,7 +27,7 @@
         <% for (var i = 0; i < posts.slice(0, 3).length; i++) { -%>
             <div class="row d-flex align-items-stretch">
               <% if(i % 2 === 1) { %>
-              <div class="image col-lg-5"><img src="<%= posts[i].image %>" alt="..."></div>
+              <div class="image col-lg-5"><a href="/posts/<%= posts[i]._id %>"><img src="<%= posts[i].image %>" alt="..."></a></div>
               <% } %>
               <div class="text col-lg-7">
                 <div class="text-inner d-flex align-items-center">
@@ -47,7 +47,7 @@
                 </div>
               </div>
               <% if(i % 2 === 0) { %>
-              <div class="image col-lg-5"><img src="<%= posts[i].image %>" alt="..."></div>
+              <div class="image col-lg-5"><a class="d-inline" href="/posts/<%= posts[i]._id %>"><img src="<%= posts[i].image %>" alt="..."></a></div>
               <% } %>
             </div>
         <% } -%>
