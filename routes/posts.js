@@ -68,6 +68,13 @@ router.get("/:id?/edit", middleware.checkPostOwnership, function(req, res){
 
 // REPLACE
 router.put("/:id", middleware.checkPostOwnership, function(req, res){
+		var	author	= {
+			id: req.user._id,
+			username: req.user.username,
+			image: req.user.image,
+			email: req.user.email
+		}
+		req.body.post.author = author
 	Post.findByIdAndUpdate(req.params.id, req.body.post, function(err, editPost){
 		if(err){
 			console.log(err)

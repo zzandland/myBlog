@@ -17,7 +17,7 @@
         <div class="row">
           <div class="col-lg-8">
             <h2 class="h3">Welcome to my Blog.</h2>
-            <p class="text-big">Hello. I am <strong>David</strong>. I am a freelancer Web developer who started learning since <strong>May 2018</strong>. I may lack experience, but I make up with my <strong>incessant passion for learning</strong> and <strong>hardwork</strong>. Thank you for visiting my blog and I hope you have a good stay here.</p>
+            <p class="text-big">Hello. I am <strong>David</strong>. I am a freelancer Web developer who started learning since <strong>May 2018</strong>. I may lack experience, but I make up with my <strong>incessant passion for learning</strong> and <strong>hardwork</strong>. I hope you have a good stay here.</p>
           </div>
         </div>
       </div>
@@ -40,8 +40,8 @@
                     <footer class="post-footer d-flex align-items-center"><a href="/about" class="author d-flex align-items-center flex-wrap">
                         <div class="avatar"><img src="<%= posts[i].author.image %>" alt="..." class="img-fluid"></div>
                         <div class="title"><span><%= posts[i].author.username %></span></div></a>
-                      <div class="date"><i class="icon-clock"></i> <%= timeDifference(posts[i].date) %></div>
-                      <div class="comments"><i class="icon-comment"></i><%= posts[i].comments.length%> </div>
+                      <div class="date"><i class="far fa-clock"></i> <%= timeDifference(posts[i].date) %></div>
+                      <div class="comments"><i class="far fa-comment"></i><%= posts[i].comments.length%> </div>
                     </footer>
                   </div>
                 </div>
@@ -77,7 +77,7 @@
           <% for (var i = 0; i < posts.slice(0, 3).length; i++) { -%>
             <div class="post col-md-4">
               <div class="post-thumbnail"><a href="/posts/<%= posts[i]._id %>">
-                <img src="<%= posts[i].image %>" alt="..." class="img-fluid"></a>
+                <img src="<%= posts[i].image %>" alt="..." class="img-fluid img-latest"></a>
               </div>
               <div class="post-details">
                 <div class="post-meta d-flex justify-content-between">

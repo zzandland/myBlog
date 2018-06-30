@@ -9,7 +9,7 @@
           <!-- post -->
           <% for (var i = 0; i < posts.length; i++) { -%>
             <div class="post col-xl-6">
-              <div class="post-thumbnail"><a href="/posts/<%= posts[i]._id %>"><img src="<%= posts[i].image %>" alt="..." class="img-fluid"></a></div>
+              <div class="post-thumbnail"><a href="/posts/<%= posts[i]._id %>"><img src="<%= posts[i].image %>" alt="..." class="img-fluid img-posts"></a></div>
               <div class="post-details">
                 <div class="post-meta d-flex justify-content-between">
                   <div class="date meta-last"><%= posts[i].date.toDateString().split(/\d{4}/)[0] %> | <%= posts[i].date.toDateString().match(/\d{4}/)[0] %></div>
@@ -27,13 +27,13 @@
             </div>
           <% } -%>
         <!-- Pagination -->
-        <nav aria-label="Page navigation example">
+        <nav id="nav-width">
           <ul class="pagination pagination-template d-flex justify-content-center">
-            <li class="page-item"><a href="#" class="page-link"> <i class="fa fa-angle-left"></i></a></li>
+            <li class="page-item"><a href="#" class="page-link"> <i class="fas fa-angle-left"></i></a></li>
             <li class="page-item"><a href="#" class="page-link active">1</a></li>
             <li class="page-item"><a href="#" class="page-link">2</a></li>
             <li class="page-item"><a href="#" class="page-link">3</a></li>
-            <li class="page-item"><a href="#" class="page-link"> <i class="fa fa-angle-right"></i></a></li>
+            <li class="page-item"><a href="#" class="page-link"> <i class="fas fa-angle-right"></i></a></li>
           </ul>
         </nav>
       </div>

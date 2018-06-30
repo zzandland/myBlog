@@ -748,7 +748,8 @@ section.featured-posts .image {
 }
 
 section.featured-posts .image img {
-  height: 100%;
+  width: 100%;
+  height: 360px;
 }
 
 section.featured-posts .post-header {
@@ -769,8 +770,7 @@ section.featured-posts .post-footer {
     min-height: auto !important;
   }
   section.featured-posts .image img {
-    width: 100%;
-    height: auto !important;
+    height: 100%;
   }
   section.featured-posts .text {
     -webkit-box-ordinal-group: 3;
