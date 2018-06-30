@@ -14,7 +14,7 @@
             </div>
             <h1><%= post.title %><a href="#"><i class="fa fa-bookmark-o"></i></a></h1>
             <div class="post-footer d-flex align-items-center flex-column flex-sm-row"><a href="/about" class="author d-flex align-items-center flex-wrap">
-                <div class="avatar"><img src="<%= post.author.image %>" alt="..." class="img-fluid img-latest"></div>
+                <div class="avatar"><img src="<%= post.author.image %>" alt="..." class="img-fluid"></div>
                 <div class="title"><span><%= post.author.username %></span></div></a>
               <div class="d-flex align-items-center flex-wrap">       
                 <div class="date"><i class="icon-clock"></i><%= timeDifference(post.date) %></div>

@@ -16,7 +16,7 @@
                   <div class="category"><a href="#">Business</a></div>
                 </div><a href="/posts/<%= posts[i]._id %>">
                   <h3 class="h4"><%= posts[i].title %></h3>
-                <p class="text-muted text-convert"><%= posts[i].body.length > 300 ? posts[i].body.substring(0, 300).replace(/<(?:.|\n)*?>/gm, '') + "..." : posts[i].body.replace(/<(?:.|\n)*?>/gm, '') %></p></a>
+                <p class="text-muted text-convert"><%= posts[i].body.length > 250 ? posts[i].body.substring(0, 250).replace(/<(?:.|\n)*?>/gm, '') + "..." : posts[i].body.replace(/<(?:.|\n)*?>/gm, '') %></p></a>
                 <footer class="post-footer d-flex align-items-center"><a href="#" class="author d-flex align-items-center flex-wrap">
                     <div class="avatar"><img src="<%= posts[i].author.image %>" alt="..." class="img-fluid"></div>
                     <div class="title"><span><%= posts[i].author.username %></span></div></a>
