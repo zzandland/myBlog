@@ -9,6 +9,15 @@ img {
 	width: 100%;
 }
 
+.text-convert {
+	text-align: justify;
+	font-family: "Open Sans", sans serif;
+	font-weight: 400;
+	font-size: 0.95em;
+	color: #6c757d;
+	line-height: 1.5;
+}
+
 .img-latest {
 	height: 250px;
 	width: 100%;
