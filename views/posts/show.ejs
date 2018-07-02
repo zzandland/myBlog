@@ -18,18 +18,16 @@
                 <div class="title"><span><%= post.author.username %></span></div></a>
               <div class="d-flex align-items-center flex-wrap">       
                 <div class="date"><i class="icon-clock"></i><%= timeDifference(post.date) %></div>
+                <% if(currentUser && currentUser._id.equals(post.author.id)) { %>
+                  <div class="edit y-2-down"><i class="far fa-edit edit-a-link"></i><a class="edit-a-link" href="/posts/<%= post._id %>/edit">Edit</a></div>
+                  <form class="delete y-2-down" action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+                    <i class="far fa-trash-alt edit-a-link"></i><button id="no-button">Delete</button>
+                  </form>
+                <% } %>
                 <div class="views"><i class="icon-eye"></i></div>
                 <div class="comments meta-last"><i class="icon-comment"></i><%= post.comments.length %></div>
               </div>
             </div>
-            <% if(currentUser && currentUser._id.equals(post.author.id)) { %>
-              <div class="btn-toolbar mt-4">
-                <a class="btn btn-sm btn-outline-warning mr-3" href="/posts/<%= post._id %>/edit">Edit</a>
-                <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
-                  <button class="btn btn-sm btn-outline-danger">Delete</button>
-                </form>
-              </div>
-            <% } %>
             <div class="post-body">
               <%- post.body %>
             </div>

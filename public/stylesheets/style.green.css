@@ -879,7 +879,9 @@ section.latest-posts header {
 .post .title,
 .post .date,
 .post .comments,
-.post .views {
+.post .views,
+.post .edit
+.post .delete {
   font-weight: 400;
   color: #999;
   text-transform: capitalize;
@@ -888,7 +890,9 @@ section.latest-posts header {
 .post .title i,
 .post .date i,
 .post .comments i,
-.post .views i {
+.post .views i,
+.post .edit i,
+.post .delete i {
   margin-right: 5px;
   font-size: 1.1em;
 }
@@ -896,7 +900,9 @@ section.latest-posts header {
 .post .title::after,
 .post .date::after,
 .post .comments::after,
-.post .views::after {
+.post .views::after,
+.post .edit::after,
+.post .delete::after {
   content: '|';
   display: inline-block;
   margin: 0 7px;
