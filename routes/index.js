@@ -25,6 +25,8 @@ router.get("/register", function(req, res){
 router.post("/register", function(req, res){
 	var newUser = {
 		username: req.body.username,
+		firstname: req.body.firstname,
+		lastname: req.body.lastname,
 		image: req.body.image,
 		email: req.body.email	
 	}
@@ -34,7 +36,7 @@ router.post("/register", function(req, res){
 			res.redirect("/register")
 		} else {
 			passport.authenticate("local")(req, res, function(){
-				req.flash("success", "Welcome to my blog, " + req.body.username + "!")
+				req.flash("success", "Welcome to my blog, " + req.body.firstname + " " + req.body.lastname + "!")
 				res.redirect("/posts")
 			})
 		}

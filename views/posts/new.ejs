@@ -1,24 +1,30 @@
 <% include ../partials/header %>
-  <div class="container my-3">
- 	<h1 class=''>Create a New Post</h1>
- 	<hr>
- 	<div class="container" style="max-width: 700px">
-        <form action="/posts" method="POST">
-		  <div class="form-group">
-		    <label for="title">Title</label>
-		    <input type="text" name="post[title]" class="form-control" id="title" placeholder="Type Title">
-		  </div>
-		  <div class="form-group">
-		    <label for="image">Image URL</label>
-		    <input type="text" name="post[image]" class="form-control" id="image" placeholder="Enter Image">
-		  </div>  
-		  <div class="form-group">
-		  	<label for="body">Content</label>
-		    <textarea name="post[body]" id="body" class="form-control" rows="15"></textarea>
-		  </div>
-		  <button type="submit" class="btn btn-lg btn-outline-success">Submit</button>
-		</form>	
-    </div>
+  <div id="new-post">
+ 	<h3 class='mb-4'>Create a New Post</h3>
+    <form action="/posts" method="POST">
+      <div class="form-group">
+	    <input type="text" name="post[title]" class="form-custom form-control" id="title" placeholder="Title">
+      </div>
+	  <div class="row form-group">
+	  	<div class="col">
+	  		<select name="post[categories]" id="categories" class="form-custom form-control" required>
+	  			<option id="categories-default" selected disabled hidden>Categories</option>
+	  			<option value="technology">Technology</option>
+	  			<option value="lifestyle">Lifestyle</option>
+	  			<option value="DIY">DIY</option>
+	  			<option value="entertainment">Entertainment</option>
+	  			<option value="journal">Journal</option>
+	  		</select>
+	  	</div>
+	  	<div class="col">
+		    <input type="text" name="post[image]" class="form-custom form-control" id="image" placeholder="Image URL">
+	  	</div>
+	  </div>
+	  <div class="form-group">
+	    <textarea name="post[body]" id="body" placeholder="Start Writing!" class="form-custom form-control" rows="18"></textarea>
+	  </div>
+	  <button type="submit" class="btn-secondary btn">Submit</button>
+	</form>	
     <hr>
   </div>
 <% include ../partials/footer %>

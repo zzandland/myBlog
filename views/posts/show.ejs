@@ -10,12 +10,12 @@
           <div class="post-thumbnail"><img src="<%= post.image %>" alt="..." class="img-fluid"></div>
           <div class="post-details">
             <div class="post-meta d-flex justify-content-between">
-              <div class="category"><a href="#">Business</a><a href="#">Financial</a></div>
+              <div class="category"><a href="#"><%= post.categories %></a></div>
             </div>
             <h1><%= post.title %><a href="#"><i class="fa fa-bookmark-o"></i></a></h1>
             <div class="post-footer d-flex align-items-center flex-column flex-sm-row"><a href="/about" class="author d-flex align-items-center flex-wrap">
                 <div class="avatar"><img src="<%= post.author.image %>" alt="..." class="img-fluid"></div>
-                <div class="title"><span><%= post.author.username %></span></div></a>
+                <div class="title"><span><%= post.author.fullname %></span></div></a>
               <div class="d-flex align-items-center flex-wrap">       
                 <div class="date"><i class="icon-clock"></i><%= timeDifference(post.date) %></div>
                 <% if(currentUser && currentUser._id.equals(post.author.id)) { %>
@@ -50,7 +50,7 @@
                   <div class="comment-header d-flex justify-content-between">
                     <div class="user d-flex align-items-center">
                       <div class="image"><img src="<%= post.comments[i].author.image %>" alt="" class="img-fluid rounded-circle"></div>
-                      <div class="title"><strong><%= post.comments[i].author.username %></strong><span class="date"><%= timeDifference(post.comments[i].date) %></span></div>
+                      <div class="title"><strong><%= post.comments[i].author.fullname %></strong><span class="date"><%= timeDifference(post.comments[i].date) %></span></div>
                     </div>
                   </div>
                   <div class="comment-body">

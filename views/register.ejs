@@ -1,28 +1,34 @@
 <% include ./partials/header %>
-  <div class="container my-3">
- 	<h2 class='h3'>Sign Up</h2>
- 	<hr>
- 	<div class="container" style="max-width: 700px">
-        <form action="/register" method="POST">
-		  <div class="form-group">
-		    <label for="username">Username</label>
-		    <input type="text" name="username" class="form-control" id="username" placeholder="Enter Your Username">
-		  </div>  
-		  <div class="form-group">
-		    <label for="password">Password</label>
-		    <input type="password" name="password" class="form-control" id="password" placeholder="Enter Your Password">
-		  </div>  
-		  <div class="form-group">
-		    <label for="">Image</label>
-		    <input type="text" name="image" class="form-control" id="image" placeholder="Your Profile Image URL">
-		  </div>  
-		  <div class="form-group">
-		    <label for="email">Email</label>
-		    <input type="email" name="email" class="form-control" id="email" placeholder="Your Email Address">
-		  </div>  
-		  <button type="submit" class="btn btn-lg btn-outline-success">Sign Up!</button>
-		</form>	
-    </div>
+  <div class="field-form">
+ 	<h2 class='h4 my-4'>Sign Up</h2>
+    <form action="/register" method="POST">
+      <div class="row form-group">
+        <div class="col">
+		    <input required type="text" name="firstname" class="form-custom form-control" id="firstname" placeholder="First Name">
+		</div>
+		<div class="col">
+		    <input required type="text" name="lastname" class="form-custom form-control" id="lastname" placeholder="Last Name">
+        </div>	
+      </div>
+	  <div class="form-group">
+	    <input type="text" name="image" class="form-control form-custom" id="image" placeholder="Image URL">
+	  </div>  
+	  <div class="form-group">
+	    <input required type="text" name="username" class="form-control form-custom" id="username" placeholder="Username">
+	  </div>  
+	  <div class="form-group">
+	    <input required type="email" name="email" class="form-control form-custom" id="email" placeholder="Email Address">
+	  </div>  
+	  <div class="row form-group">
+	  	<div class="col">
+		    <input required type="password" name="password" class="form-control form-custom" id="password" placeholder="Password">
+	  	</div>
+	  	<div class="col">
+	  		<input required type="password" name="password-confirm" class="form-control form-custom" id="password-confirm" placeholder="Type Your Password Again">	
+	  	</div>
+	  </div>  
+	  <button type="submit" class="btn-secondary btn">Sign Up!</button>
+	</form>	
     <hr>
   </div>
 <% include ./partials/footer%>

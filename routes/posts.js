@@ -22,17 +22,20 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 
 // CREATE
 router.post("/", middleware.isLoggedIn, function(req, res){
-	var	author	= {
-			id: req.user._id,
-			username: req.user.username,
-			image: req.user.image,
-			email: req.user.email
-		}
-	req.body.post.author = author
 	Post.create(req.body.post, function(err, newPost){
 		if(err){
 			console.log(err)
 		} else{
+			var author = {
+				id: req.user._id,
+				username: req.user.username,
+				fullname: (req.user.firstname + " " + req.user.lastname),
+				image: req.user.image,
+				email: req.user.email
+			}
+			newPost.author = author
+			newPost.save()
+			console.log(newPost)
 			res.redirect("posts")
 		}
 	})

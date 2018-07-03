@@ -18,6 +18,8 @@ router.post("/", function(req, res){
 						var author = {
 							id: req.user._id,
 							username: req.user.username,
+							fullname: (req.user.firstname + " " + req.user.lastname),
+							email: req.user.email,
 							image: req.user.image	
 						}
 						createdComment.author = author;
@@ -25,6 +27,7 @@ router.post("/", function(req, res){
 					} else {
 						var author = {
 							username: req.body.username,
+							email: req.body.email,
 							image: "https://d30y9cdsu7xlg0.cloudfront.net/png/138927-200.png"
 						}
 						createdComment.author = author;
@@ -46,7 +49,6 @@ router.get("/:comment_id/edit", middleware.checkCommentOwnership, function(req, 
 		if (err) {
 			console.log(err)
 		} else {
-			res.send("worked!")
 			res.render("comments/edit", {post_id: req.params.id, comment: foundComment})	
 		}
 	})

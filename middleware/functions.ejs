@@ -1,6 +1,6 @@
 <%
 timeDifference = function(currentTime){
-	  var diff = (Date.now() - currentTime) / 1000;
+	  var diff = (Date.now() - currentTime + 2000) / 1000;
 	  if (diff < 60) {
 	    return Math.floor(diff) + " seconds ago"
 	  }

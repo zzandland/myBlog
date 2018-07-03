@@ -33,13 +33,13 @@
                 <div class="text-inner d-flex align-items-center">
                   <div class="content">
                     <header class="post-header">
-                      <div class="category"><a href="#">Business</a><a href="#">Technology</a></div><a href="/posts/<%= posts[i]._id %>">
+                      <div class="category"><a href="#"><%= posts[i].categories %></a></div><a href="/posts/<%= posts[i]._id %>">
                         <h2 class="h4"><%= posts[i].title %></h2></a>
                     </header>
                     <a href="/posts/<%= posts[i]._id %>"><p class="text-align"><%= posts[i].body.length > 300 ? posts[i].body.substring(0, 200).replace(/<(?:.|\n)*?>/gm, '') + "..." : posts[i].body.replace(/<(?:.|\n)*?>/gm, '') %></p></a>
                     <footer class="post-footer d-flex align-items-center"><a href="/about" class="author d-flex align-items-center flex-wrap">
                         <div class="avatar"><img src="<%= posts[i].author.image %>" alt="..." class="img-fluid"></div>
-                        <div class="title"><span><%= posts[i].author.username %></span></div></a>
+                        <div class="title"><span><%= posts[i].author.fullname %></span></div></a>
                       <div class="date"><i class="far fa-clock"></i> <%= timeDifference(posts[i].date) %></div>
                       <div class="comments"><i class="far fa-comment"></i><%= posts[i].comments.length%> </div>
                     </footer>
@@ -82,7 +82,7 @@
               <div class="post-details">
                 <div class="post-meta d-flex justify-content-between">
                   <div class="date"><%= posts[i].date.toDateString().split(/\d{4}/)[0] %> | <%= posts[i].date.toDateString().match(/\d{4}/)[0] %></div>
-                  <div class="category"><a href="#">Business</a></div>
+                  <div class="category"><a href="#"><%= posts[i].categories %></a></div>
                 </div><a href="/posts/<%= posts[i]._id %>">
                   <h3 class="h4"><%= posts[i].title %></h3>
                 <p class="text-muted text-align"><%= posts[i].body.length > 150 ? posts[i].body.substring(0, 150).replace(/<(?:.|\n)*?>/gm, '') + "..." : posts[i].body.replace(/<(?:.|\n)*?>/gm, '') %></p></a>

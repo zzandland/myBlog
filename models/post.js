@@ -8,12 +8,14 @@ var postSchema = new mongoose.Schema({
 			ref: "User"
 		},
 		username: String,
+		fullname: String,
 		image: String,
 		email: String
 	},
 	image: String,
 	date: {type: Date, default: Date.now},
 	body: String,
+	categories: String,
 	comments: [
 		{
 			type: mongoose.Schema.Types.ObjectId,

@@ -7,6 +7,7 @@ var commentSchema = new mongoose.Schema({
 			ref: "User"
 		},
 		username: String,
+		fullname: String,
 		image: String
 	},
 	date: {type: Date, default: Date.now},
